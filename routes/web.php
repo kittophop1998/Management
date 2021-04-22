@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\managecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Home');
-});
-Route::get('/leave', function () {
-    return view('leave');
-});
-Route::get('/keepvender', function () {
-    return view('vender');
-});
+Route::get('/', [managecontroller::class,'index']);
+Route::get('/login', [managecontroller::class,'main_management']);
+Route::get('/leave', [managecontroller::class,'leave']);
+Route::get('/keepvender', [managecontroller::class,'keepvender']);

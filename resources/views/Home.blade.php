@@ -10,20 +10,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Accellum Technology</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-      <li><a href="/leave">บันทึกการลา</a></li>
-      <li><a href="/keepvender">เก็บรูป สินค้า</a></li>
-      <!-- <li><a href="#">Page 3</a></li> -->
-    </ul>
-  </div>
-</nav>
-
 <?php
    ob_start();
    session_start();
@@ -37,104 +23,87 @@
 
 <title>Tutorialspoint.com</title>
 <link href = "css/bootstrap.min.css" rel = "stylesheet">
-      
-<!-- <style>
-    body {
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #ADABAB;
-    }
-    
-    .form-signin {
-      max-width: 330px;
-      padding: 15px;
-      margin: 0 auto;
-      color: #017572;
-    }
-    
-    .form-signin .form-signin-heading,
-    .form-signin .checkbox {
-      margin-bottom: 10px;
-    }
-    
-    .form-signin .checkbox {
-      font-weight: normal;
-    }
-    
-    .form-signin .form-control {
-      position: relative;
-      height: auto;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      padding: 10px;
-      font-size: 16px;
-    }
-    
-    .form-signin .form-control:focus {
-      z-index: 2;
-    }
-    
-    .form-signin input[type="email"] {
-      margin-bottom: -1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-      border-color:#017572;
-    }
-    
-    .form-signin input[type="password"] {
-      margin-bottom: 10px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border-color:#017572;
-    }
-    
-    h2{
-      text-align: center;
-      color: #017572;
-    }
-</style> -->
-      
-  <center> <h2>Enter Username and Password</h2> </center>
-      <div class = "container form-signin">
-         
-         <?php
-            $msg = '';
-            
-            if (isset($_POST['login']) && !empty($_POST['username']) 
-               && !empty($_POST['password'])) {
-				
-               if ($_POST['username'] == 'tutorialspoint' && 
-                  $_POST['password'] == '1234') {
-                  $_SESSION['valid'] = true;
-                  $_SESSION['timeout'] = time();
-                  $_SESSION['username'] = 'tutorialspoint';
-                  
-                  echo 'You have entered valid use name and password';
-               }else {
-                  $msg = 'Wrong username or password';
-               }
+
+<style>
+            *{
+  	            box-sizing: border-box;
+  	            font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+  	            font-size: 16px;
+  	            -webkit-font-smoothing: antialiased;
+  	            -moz-osx-font-smoothing: grayscale;
             }
-         ?>
-      </div> <!-- /container -->
-      
-      <div class = "container">
-      
-         <form class = "form-signin" role = "form" 
-            action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
-            ?>" method = "post">
-            <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
-            <input type = "text" class = "form-control" 
-               name = "username" placeholder = "username = tutorialspoint" 
-               required autofocus></br>
-            <input type = "password" class = "form-control"
-               name = "password" placeholder = "password = 1234" required>
-            <button class = "btn btn-lg btn-primary btn-block" type = "submit" 
-               name = "login">Login</button>
-         </form>
-			
-         Click here to clean <a href = "logout.php" tite = "Logout">Session.
-         
-      </div> 
+        body {
+  	        background-color: #FFCC99;
+        }
+        .login {
+  	        width: 400px;
+  	        background-color: #ffffff;
+  	        box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+  	        margin: 100px auto;
+        }
+        .login h1 {
+  	        text-align: center;
+  	        color: #5b6574;
+  	        font-size: 24px;
+  	        padding: 20px 0 20px 0;
+  	        border-bottom: 1px solid #dee0e4;
+        }
+        .login form {
+  	        display: flex;
+  	        flex-wrap: wrap;
+  	        justify-content: center;
+  	        padding-top: 20px;
+        }
+        .login form label {
+  	        display: flex;
+  	        justify-content: center;
+  	        align-items: center;
+  	        width: 50px;
+  	        height: 50px;
+  	        background-color: #3274d6;
+  	        color: #ffffff;
+        }
+        .login form input[type="password"], .login form input[type="text"] {
+            width: 310px;
+            height: 50px;
+            border: 1px solid #dee0e4;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+        .login form input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #3274d6;
+            border: 0;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+            transition: background-color 0.2s;
+        }
+        .login form input[type="submit"]:hover {
+	        background-color: #2868c7;
+            transition: background-color 0.2s;
+        }
+        
+        </style>
+        <link href="style.css" rel="stylesheet" type="text/css">
+
+	</head>
+	<body>
+		<div class="login">
+			<h1>Login</h1>
+			<form method="get" action="/login">
+				<label for="username">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text"   id="txtUsername" required name="txtUsername" placeholder="Username">
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password"   id="txtPassword" required name="txtPassword" placeholder="Password">
+				<input type="submit" value="Login">
+			</form>
+		</div>
 
 
