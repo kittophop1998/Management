@@ -1,4 +1,8 @@
 <html lang="en">
+
+<!-- Logo accl -->
+<link rel="shortcut icon" type="image/x-icon" href="https://www.img.in.th/images/7722f7aaabce1aff9a3e2175d5d8d7ca.png" />
+
   <title>ระบบจัดการภายใน</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
